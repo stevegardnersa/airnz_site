@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    height: 100vh;
+    background: linear-gradient(125deg, #8F42FA 0%, #3A0EC0 15%, #000000 50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 0 25px;
+    color: white;
+    margin-top: calc((100vh - (87px + 210px + 190px))*0.5);
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+.logo img {
+    width: 40px;
+}
+
+.greeting {
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.main-content {
+    margin-top: calc((100vh - (87px + 210px + 190px))*0.25);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    /* padding: 20px; */
+}
+
+.ring-container {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+
+.ring-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ring-1 {
+    z-index: 1;
+}
+
+.animate .ring-1 {
+    animation: fade 1.5s infinite;
+}
+
+.ring-2 {
+    z-index: 2;
+    transform: rotate(180deg);
+    opacity: 0;
+}
+
+.animate .ring-2 {
+    animation: fade2 1.5s infinite;
+}
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade2 {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.tap-circle img {
+    width: 105px;
+}
+
+.tap-circle {
+    z-index: 3;
+    width: 200px;
+    height: 200px;
+    /* border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.tap {
+    display: block;
+}
+
+.animate .tap {
+    display: none;
+}
+
+.mic {
+    height: 104px;
+    width: auto !important;
+    display: none;
+}
+
+.animate .mic {
+    display: block;
+}
+
+.pulse {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.tap-text {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.bottom-panel {
+    background: white;
+    /* border-radius: 20px 20px 0 0; */
+    /* padding: 20px; */
+    transform: translateY(0);
+    transition: top 0.3s ease-out;
+    position: absolute;
+    z-index: 10;
+    top: calc(100vh - 152px);
+    width: 100%;
+    height: 100vh;
+}
+
+.panel-content {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    background: white;
+    border: none;
+    padding: 0;
+    z-index: 20;
+}
+
+.back-arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-panel.expanded {
+    top: 0;
+}
+
+.bottom-panel.expanded .panel-content {
+    opacity: 0;
+}
+
+.bottom-panel.expanded .back-arrow {
+    opacity: 1;
+}
+
+.cant-see-text {
+    text-align: center;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.curve {
+    position: relative;
+    bottom: 54px;
+}
+
+.curve img {
+    width: 100%;
+    display: block;
+}
+
+.add-booking {
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    right: 20px;
+    top: -30px;
+}
+
+.add-booking-btn {
+    width: 160px;
+    height: 35px;
+    background: linear-gradient(105deg, #AA50FB 0%, #00B0B9 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.bottom-nav {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    /* padding: 10px 0; */
+    /* padding-top: 54px; */
+    /* height: 100vh; */
+    position: absolute;
+    width: 100%;
+    top: 41px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 12px;
+}
+
+.nav-item img {
+    width: 60px;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.flights-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23666" d="M21,16V14L13,9V3.5A1.5,1.5,0,0,0,11.5,2h0A1.5,1.5,0,0,0,10,3.5V9L2,14v2l8-2.5V19L8,20.5V22l3.5-1L15,22V20.5L13,19V13.5Z"/></svg>');
+}
+
+.book-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23666" d="M19,2H5A2,2,0,0,0,3,4V20a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2V4A2,2,0,0,0,19,2ZM12,18a6,6,0,1,1,6-6A6,6,0,0,1,12,18Z"/></svg>');
+}
+
+.airpoints-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23666" d="M12,2L1,21H23L12,2ZM12,17a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,17Zm1-4H11V7h2Z"/></svg>');
+}
+
+.more-icon {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23666" d="M12,8a2,2,0,1,1-2,2A2,2,0,0,1,12,8ZM4,10a2,2,0,1,0,2,2A2,2,0,0,0,4,10Zm16,0a2,2,0,1,0,2,2A2,2,0,0,0,20,10Z"/></svg>');
+}
+
+.user-greeting {
+    font-weight: 300;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.footer {
+    width: 100%;
+    height: 45px;
+    background-color: #EBEBEB;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer img {
+    height: 20px;
+    position: relative;
+    top: -8px;
+}
